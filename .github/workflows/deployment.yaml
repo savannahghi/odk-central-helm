@@ -1,0 +1,45 @@
+name: ODK Central Deployment
+
+on: [push]
+
+env:
+  GKE_ZONE: ${{ secrets.GKE_ZONE }}
+  GKE_PROJECT: ${{ secrets.GKE_PROJECT }}
+  CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
+  NAMESPACE: ${{ secrets.NAMESPACE }}
+  APP_REPLICA_COUNT: ${{ secrets.APP_REPLICA_COUNT }}
+  PORT: ${{ secrets.PORT }}
+  GOOGLE_CLOUD_PROJECT: ${{ secrets.GOOGLE_CLOUD_PROJECT }}
+  APP_DOMAIN: ${{ secrets.APP_DOMAIN }}
+  APP_NAME: ${{ secrets.APP_NAME }}
+
+jobs:
+  deploy_to_testing:
+    name: Deploy testing server to google kubernetes engine
+    runs-on: ubuntu-latest
+    environment:
+      name: test
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - id: "auth"
+        uses: "google-github-actions/auth@v0"
+        with:
+          credentials_json: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          project_id: ${{ secrets.GOOGLE_CLOUD_PROJECT }}
+
+      - name: Install Helm
+        run: |
+          curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+
+      - uses: google-github-actions/get-gke-credentials@fb08709ba27618c31c09e014e1d8364b02e5042e
+        with:
+          cluster_name: ${{ env.CLUSTER_NAME }}
+          location: ${{ env.GKE_ZONE }}
+          credentials: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+
+      - name: Deploy to Google Kubernetes engine
+        shell: bash
+        run: cd deploy/ && cat deploy.sh && sh deploy.sh
