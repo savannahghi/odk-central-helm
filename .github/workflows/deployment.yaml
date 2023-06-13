@@ -12,6 +12,28 @@ env:
   GOOGLE_CLOUD_PROJECT: ${{ secrets.GOOGLE_CLOUD_PROJECT }}
   APP_DOMAIN: ${{ secrets.APP_DOMAIN }}
   APP_NAME: ${{ secrets.APP_NAME }}
+  DOMAIN: ${{ secrets.DOMAIN }}
+  SYSADMIN_EMAIL: ${{ secrets.SYSADMIN_EMAIL }}
+  DB_HOST: ${{ secrets.DB_HOST }}
+  DB_USER: ${{ secrets.DB_USER }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+  DB_NAME: ${{ secrets.DB_NAME }}
+  DB_SSL: ${{ secrets.DB_SSL }}
+  HTTPS_PORT: ${{ secrets.HTTPS_PORT }}
+  NODE_OPTIONS: ${{ secrets.NODE_OPTIONS }}
+  EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+  EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
+  EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
+  EMAIL_SECURE: ${{ secrets.EMAIL_SECURE }}
+  EMAIL_IGNORE_TLS: ${{ secrets.EMAIL_IGNORE_TLS }}
+  EMAIL_USER: ${{ secrets.EMAIL_USER }}
+  EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+  SENTRY_ORG_SUBDOMAIN: ${{ secrets.SENTRY_ORG_SUBDOMAIN }}
+  SENTRY_KEY: ${{ secrets.SENTRY_KEY }}
+  SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+  DB_INSTANCE_CONNECTION_NAME: ${{ secrets.DB_INSTANCE_CONNECTION_NAME }}
+  FRONTEND_PORT: ${{ secrets.FRONTEND_PORT }}
+  FRONTEND_APP_DOMAIN: ${{ secrets.FRONTEND_APP_DOMAIN }}
 
 jobs:
   deploy_to_testing:

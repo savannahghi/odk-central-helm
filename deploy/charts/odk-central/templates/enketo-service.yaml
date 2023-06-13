@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    odk.service: enketo
+  name: enketo
+spec:
+  ports:
+    - name: "8005"
+      port: 8005
+      targetPort: 8005
+  selector:
+    odk.service: enketo
