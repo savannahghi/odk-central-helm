@@ -4,6 +4,22 @@
 
 replicaCount: 1
 
+app:
+  container:
+    imagePullPolicy: "Always"
+    port: 8080
+    env:
+      googleApplicationCredentialsSecret:
+        name: "odk-service-account"
+        filePath: "/secrets/gcp/key.json"
+        mountPath: "/secrets/gcp"
+
+backend:
+  image:
+    repository: docker.io/openg2p/odk-central-backend
+    pullPolicy: Always
+    tag: v2023.1.0
+       
 frontend:
   image:
     registry: docker.io
