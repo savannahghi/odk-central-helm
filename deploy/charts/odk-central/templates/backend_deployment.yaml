@@ -98,6 +98,11 @@ spec:
             - name: SENTRY_PROJECT
               value: {{ .Values.app.container.env.sentryProject | quote }}
 
+          volumeMounts:
+          - name: enketo-api-key
+            mountPath: /etc/secrets/enketo-api-key
+            subPath: enketo
+
         - name: cloudsql-proxy
           image: gcr.io/cloudsql-docker/gce-proxy:1.33.2
           command: [
@@ -118,4 +123,8 @@ spec:
       - name: {{ .Values.app.container.env.googleApplicationCredentialsSecret.name }}
         secret:
           secretName: {{ .Values.app.container.env.googleApplicationCredentialsSecret.name }}
+          
+      - name: enketo-api-key
+        secret:
+          secretName: enketo
     
