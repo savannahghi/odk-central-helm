@@ -34,6 +34,7 @@ env:
   DB_INSTANCE_CONNECTION_NAME: ${{ secrets.DB_INSTANCE_CONNECTION_NAME }}
   FRONTEND_PORT: ${{ secrets.FRONTEND_PORT }}
   FRONTEND_APP_DOMAIN: ${{ secrets.FRONTEND_APP_DOMAIN }}
+  ENKETO_API_KEY: ${{ secrets.ENKETO_API_KEY }}
 
 jobs:
   deploy_to_testing:

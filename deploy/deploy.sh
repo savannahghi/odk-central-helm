@@ -6,7 +6,7 @@ set -eux
 kubectl create namespace $NAMESPACE || true
 
 # Delete Kubernetes secret if exists
-kubectl delete secret odk-service-account --namespace $NAMESPACE || true
+kubectl delete secret odk-service-account enketo --namespace $NAMESPACE || true
 
 # Create GCP service account file
 cat $GOOGLE_APPLICATION_CREDENTIALS >> ./service-account.json
@@ -15,6 +15,8 @@ cat $GOOGLE_APPLICATION_CREDENTIALS >> ./service-account.json
 kubectl create secret generic odk-service-account \
     --namespace $NAMESPACE \
     --from-file=key.json=./service-account.json
+
+kubectl create secret generic enketo --namespace $NAMESPACE --from-literal=enketo-api-key="$ENKETO_API_KEY"
 
 helm upgrade \
     --install \
