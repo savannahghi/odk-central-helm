@@ -102,6 +102,10 @@ spec:
           - name: enketo-api-key
             mountPath: /etc/secrets/enketo-api-key
             subPath: enketo
+          
+          - name: backend-configuration
+            mountPath: /usr/share/odk/config.json.template
+            subPath: config.json
 
         - name: cloudsql-proxy
           image: gcr.io/cloudsql-docker/gce-proxy:1.33.2
@@ -127,4 +131,8 @@ spec:
       - name: enketo-api-key
         secret:
           secretName: enketo
+
+      - name: backend-configuration
+        configMap:
+          name: odk-backend-config
     
