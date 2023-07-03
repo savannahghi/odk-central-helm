@@ -19,7 +19,7 @@ backend:
     repository: docker.io/openg2p/odk-central-backend
     pullPolicy: Always
     tag: v2023.1.0
-       
+
 frontend:
   image:
     registry: docker.io
@@ -72,14 +72,15 @@ service:
   port: 80
 
 ingress:
-  enabled: false
-  className: ""
+  enabled: true
+  className: "kong"
   annotations:
-    {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    konghq.com/protocols: "https"
+    konghq.com/https-redirect-status-code: "308"
   hosts:
-    - host: chart-example.local
+    - host: ""
       paths:
         - path: /
           pathType: ImplementationSpecific
