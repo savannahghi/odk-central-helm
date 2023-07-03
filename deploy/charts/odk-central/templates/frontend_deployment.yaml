@@ -41,7 +41,7 @@ spec:
         
           env:
             - name: SSL_TYPE
-              value: "letsencrypt"
+              value: "selfsign"
             - name: DOMAIN
               value: {{ .Values.networking.frontend.ingress.host }}
               
