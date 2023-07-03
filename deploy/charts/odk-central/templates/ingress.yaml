@@ -38,7 +38,7 @@ spec:
             pathType: "Prefix"
             backend:
               service:
-                name: odk-central-backend
+                name: service
                 port:
                   number: {{ .Values.service.port }}
 
