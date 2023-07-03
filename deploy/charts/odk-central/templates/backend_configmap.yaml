@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: odk-backend-config
+data:
+  config.json: |
+    {
+        "default": {
+            "database": {
+                "host": "localhost",
+                "user": "mycarehub_django",
+                "password": "mycarehub_django",
+                "database": "odkcentral"
+            },
+            "xlsform": {
+                "host": "pyxform",
+                "port": 80
+            },
+            "enketo": {
+                "url": "http://enketo:8005/-",
+                "apiKey": "${ENKETO_API_KEY}"
+            },
+            "env": {
+                "domain": "${BASE_URL}",
+                "sysadminAccount": "${SYSADMIN_EMAIL}"
+            }
+        }
+    }
