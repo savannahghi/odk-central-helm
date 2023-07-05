@@ -26,6 +26,32 @@ spec:
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: decode-secrets
+          image: busybox:1.28
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              mkdir -p /etc/letsencrypt/live/odk-frontend.savannahghi.org/
+              echo "${TLS_KEY}" | base64 -d > /etc/letsencrypt/live/odk-frontend.savannahghi.org/privkey.pem
+              echo "${TLS_CRT}" | base64 -d > /etc/letsencrypt/live/odk-frontend.savannahghi.org/fullchain.pem
+          env:
+            - name: TLS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: letsencrypt-prod
+                  key: tls.key
+
+            - name: TLS_CRT
+              valueFrom:
+                secretKeyRef:
+                  name: letsencrypt-prod
+                  key: tls.crt
+
+          volumeMounts:
+          - name: ssl-certs
+            mountPath: /etc/letsencrypt/live/odk-frontend.savannahghi.org/
+
       containers:
         - name: odk-central-frontend
           securityContext:
@@ -57,3 +83,11 @@ spec:
 
             - name: HTTPS_PORT
               value: "443"
+
+          volumeMounts:
+          - name: ssl-certs
+            mountPath: /etc/letsencrypt/live/odk-frontend.savannahghi.org/
+
+      volumes:
+        - name: ssl-certs
+          emptyDir: {}
