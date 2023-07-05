@@ -42,6 +42,18 @@ spec:
           env:
             - name: SSL_TYPE
               value: "letsencrypt"
+
             - name: DOMAIN
               value: {{ .Values.networking.frontend.ingress.host }}
-              
+
+            - name: SYSADMIN_EMAIL
+              value: {{ .Values.app.container.env.sysAdminEmail | quote }}
+            
+            - name: CERTBOT_EMAIL
+              value: {{ .Values.app.container.env.sysAdminEmail | quote }}
+
+            - name: HTTP_PORT
+              value: "80"
+
+            - name: HTTPS_PORT
+              value: "443"
