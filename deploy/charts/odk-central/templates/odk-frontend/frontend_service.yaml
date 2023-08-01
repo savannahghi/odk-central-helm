@@ -5,11 +5,12 @@ metadata:
   labels:
     app: odk-frontend
 spec:
-  type: {{ .Values.service.type }}
+  type: ClusterIP
   ports:
     - port: {{ .Values.service.frontendport }}
       targetPort: {{ .Values.service.frontendport }}
       protocol: TCP
       name: http
+
   selector:
     app: odk-frontend
