@@ -14,9 +14,9 @@ apiVersion: extensions/v1beta1
 {{- end }}
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: odk-frontend
   labels:
-    {{- include "odk-central.labels" . | nindent 4 }}
+    app: odk-frontend
   {{- with .Values.ingress.annotations }}
   annotations:
     {{- toYaml . | nindent 4 }}
@@ -27,21 +27,9 @@ spec:
   {{- end }}
   tls:
     - hosts:
-        - {{ .Values.networking.ingress.host }}
         - {{ .Values.networking.frontend.ingress.host }}
       secretName: letsencrypt-prod
   rules:
-    - host: {{ .Values.networking.ingress.host }}
-      http:
-        paths:
-          - path: "/"
-            pathType: "Prefix"
-            backend:
-              service:
-                name: service
-                port:
-                  number: {{ .Values.service.port }}
-
     - host: {{ .Values.networking.frontend.ingress.host }}
       http:
         paths:
