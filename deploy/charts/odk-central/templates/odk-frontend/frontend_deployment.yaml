@@ -3,14 +3,14 @@ kind: Deployment
 metadata:
   name: odk-central-frontend
   labels:
-    {{- include "odk-central.labels" . | nindent 4 }}
+    app: odk-frontend
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "odk-central.selectorLabels" . | nindent 6 }}
+      app: odk-frontend
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,7 +18,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "odk-central.selectorLabels" . | nindent 8 }}
+        app: odk-frontend
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
