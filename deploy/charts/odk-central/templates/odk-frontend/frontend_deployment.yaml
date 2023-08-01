@@ -33,8 +33,8 @@ spec:
           args:
             - |
               mkdir -p /etc/letsencrypt/live/odk-frontend.savannahghi.org/
-              echo "${TLS_KEY}" | base64 -d > /etc/letsencrypt/live/odk-frontend.savannahghi.org/privkey.pem
-              echo "${TLS_CRT}" | base64 -d > /etc/letsencrypt/live/odk-frontend.savannahghi.org/fullchain.pem
+              echo "${TLS_KEY}" > /etc/letsencrypt/live/odk-frontend.savannahghi.org/privkey.pem
+              echo "${TLS_CRT}" > /etc/letsencrypt/live/odk-frontend.savannahghi.org/fullchain.pem
           env:
             - name: TLS_KEY
               valueFrom:
