@@ -78,7 +78,7 @@ ingress:
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
     konghq.com/protocols: "https"
-    konghq.com/https-redirect-status-code: "308"
+    konghq.com/https-redirect-status-code: "301"
   hosts:
     - host: ""
       paths:
