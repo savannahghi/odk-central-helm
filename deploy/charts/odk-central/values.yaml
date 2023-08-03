@@ -27,6 +27,13 @@ frontend:
     tag: v2023.1.0
     pullPolicy: Always
 
+pyxform:
+  image:
+    registry: docker.io
+    repository: getodk/pyxform-http
+    tag: latest
+    pullPolicy: Always
+
 enketo:
   configfilepath: "/srv/src/enketo_express/config/config.json"
   configmountpath: "/srv/src/enketo_express/config"
