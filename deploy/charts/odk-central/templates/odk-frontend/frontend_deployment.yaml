@@ -42,7 +42,7 @@ spec:
         
           env:
             - name: SSL_TYPE
-              value: "letsencrypt"
+              value: "upstream"
 
             - name: DOMAIN
               value: {{ .Values.networking.frontend.ingress.host }}
