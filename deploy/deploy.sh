@@ -39,6 +39,7 @@ helm upgrade \
     --set app.container.env.emailFrom="${EMAIL_FROM}"\
     --set app.container.env.emailHost="${EMAIL_HOST}"\
     --set app.container.env.emailPort="${EMAIL_PORT}"\
+    --set app.container.env.enketoApiKey="${ENKETO_API_KEY}"\
     --set app.container.env.emailSecure="${EMAIL_SECURE}"\
     --set app.container.env.emailIgnoreTls="${EMAIL_IGNORE_TLS}"\
     --set app.container.env.emailUser="${EMAIL_USER}"\
