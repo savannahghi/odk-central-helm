@@ -49,10 +49,17 @@ spec:
           volumeMounts:
           - name: {{ .Values.enketo.configSecretName }}
             mountPath: {{ .Values.enketo.configmountpath }}
+          
+          - name: enketo-secrets
+            mountPath: /etc/secrets
 
       volumes:
       - name: {{ .Values.enketo.configSecretName }}
         configMap:
           name: {{ .Values.enketo.configSecretName }} 
           defaultMode: 0700
+      
+      - name: enketo-secrets
+        secret:
+          secretName: {{ .Values.enketo.configSecretName }} 
       
