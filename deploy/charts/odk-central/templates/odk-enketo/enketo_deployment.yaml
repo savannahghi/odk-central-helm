@@ -57,7 +57,7 @@ spec:
       - name: {{ .Values.enketo.configSecretName }}
         configMap:
           name: {{ .Values.enketo.configSecretName }} 
-          defaultMode: 0700
+          defaultMode: 0777
       
       - name: enketo-secrets
         secret:
