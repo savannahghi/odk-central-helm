@@ -7,10 +7,10 @@ data:
     {
         "default": {
             "database": {
-                "host": "localhost",
-                "user": "mycarehub_django",
-                "password": "mycarehub_django",
-                "database": "odkcentral"
+                "host": {{ .Values.app.container.env.dbHost | quote }},
+                "user": {{ .Values.app.container.env.dbUser | quote }},
+                "password": {{ .Values.app.container.env.dbPassword | quote }},
+                "database": {{ .Values.app.container.env.dbName | quote }}
             },
             "xlsform": {
                 "host": "pyxform",
