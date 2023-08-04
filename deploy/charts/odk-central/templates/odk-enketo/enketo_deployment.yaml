@@ -26,6 +26,17 @@ spec:
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: copy-config-file
+          image: busybox
+          command: ['sh', '-c', 'cp /config/* /srv/src/enketo_express/config']
+          volumeMounts:
+            - name: {{ .Values.enketo.configSecretName }}
+              mountPath: {{ .Values.enketo.configmountpath }}
+    
+            - name: config
+              mountPath: /config
+              
       containers:
         - name: enketo
           securityContext:
@@ -55,9 +66,12 @@ spec:
 
       volumes:
       - name: {{ .Values.enketo.configSecretName }}
+        emptyDir: {}
+      
+      - name: config
         configMap:
           name: {{ .Values.enketo.configSecretName }} 
-          defaultMode: 0700
+          defaultMode: 0777
       
       - name: enketo-secrets
         secret:
