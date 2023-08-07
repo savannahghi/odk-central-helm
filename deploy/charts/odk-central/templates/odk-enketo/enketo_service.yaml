@@ -5,6 +5,7 @@ metadata:
     odk.service: enketo
   name: enketo
 spec:
+  type: {{ .Values.service.type }}
   ports:
     - name: "http"
       port: {{ .Values.enketo.container.port }}

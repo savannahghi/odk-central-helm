@@ -35,6 +35,7 @@ env:
   FRONTEND_PORT: ${{ secrets.FRONTEND_PORT }}
   FRONTEND_APP_DOMAIN: ${{ secrets.FRONTEND_APP_DOMAIN }}
   ENKETO_API_KEY: ${{ secrets.ENKETO_API_KEY }}
+  ENKETO_DOMAIN: ${{ secrets.ENKETO_DOMAIN }}
 
 jobs:
   deploy_to_testing:
