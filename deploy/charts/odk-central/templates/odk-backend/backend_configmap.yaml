@@ -18,11 +18,11 @@ data:
             },
             "enketo": {
                 "url": "http://enketo:8005/-",
-                "apiKey": "${ENKETO_API_KEY}"
+                "apiKey": {{ .Values.app.container.env.enketoApiKey | quote }}
             },
             "env": {
-                "domain": "${BASE_URL}",
-                "sysadminAccount": "${SYSADMIN_EMAIL}"
+                "domain": "https://{{ .Values.networking.ingress.host }}",
+                "sysadminAccount": {{ .Values.app.container.env.sysAdminEmail | quote }}
             }
         }
     }
