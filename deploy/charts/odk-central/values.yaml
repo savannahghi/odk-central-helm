@@ -45,6 +45,76 @@ enketo:
     repository: enketo/enketo-express
     tag: 6.2.0
     pullPolicy: Always
+  
+enketoSettingsConfig: |-
+  {
+    "app name": "Enketo",
+    "base path": "-",
+    "id length": 31,
+    "linked form and data server": {
+        "api key": "randomkey",
+        "authentication": {
+            "type": "cookie"
+        },
+        "name": "ODK Central"
+    },
+    "logo": {
+        "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=",
+        "href": ""
+    },
+    "google": {
+      "analytics": {
+          "ua": "",
+          "domain": ""
+      },
+      "api key": ""
+    },
+    "support": {
+      "email": "support@savannahghi.org"
+    },
+    "default theme": "formhub",
+    "themes supported": [
+      "formhub",
+      "grid"
+    ],
+    "timeout": 400000,
+    "repeat ordinals": false,
+    "validate continuously": false,
+    "validate page": true,
+    "swipe page": true,
+    "exclude non-relevant": true,
+    "maps": [
+      {
+          "name": "street",
+          "tiles": [
+              "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          ],
+          "attribution": "Map data © <a href='http://openstreetmap.org'>OpenStreetMap</a> contributors"
+      },
+      {
+          "name": "satellite",
+          "tiles": [
+              "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+          ],
+          "attribution": "Tiles © Esri — Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+      },
+      {
+          "name": "terrain",
+          "tiles": [
+              "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png"
+          ],
+          "attribution": "Map data © <a href='https://opentopomap.org/'>OpenStreetMap</a> contributors"
+      }
+    ],
+    "text field character limit": 2000,
+    "csrf cookie name": "__csrf",
+    "offline enabled": true,
+    "payload limit": "1mb",
+    "port": "8005",
+    "query parameter to pass to submission": "st",
+    "text field character limit": 1000000,
+    "exclude non-relevant": true
+  }
 
 imagePullSecrets: []
 nameOverride: ""
