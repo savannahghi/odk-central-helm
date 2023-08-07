@@ -3,26 +3,5 @@ kind: ConfigMap
 metadata:
   name: {{ .Values.enketo.configSecretName }}
 data:
-  config.json: |
-    {
-      "app name": "Enketo",
-      "base path": "-",
-      "id length": 31,
-      "linked form and data server": {
-          "api key": {{ .Values.app.container.env.enketoApiKey | quote }},
-          "authentication": {
-              "type": "cookie"
-          },
-          "name": "ODK Central"
-      },
-      "logo": {
-          "source": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=",
-          "href": ""
-      },
-      "offline enabled": true,
-      "payload limit": "1mb",
-      "port": "8005",
-      "query parameter to pass to submission": "st",
-      "text field character limit": 1000000,
-      "exclude non-relevant": true
-    }
+  config.json: {{ .Values.enketoSettingsConfig | quote }}
+  default-config.json: {{ .Values.enketoSettingsConfig | quote }}
