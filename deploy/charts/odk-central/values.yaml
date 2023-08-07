@@ -42,8 +42,8 @@ enketo:
     port: 8005
   image:
     registry: docker.io
-    repository: openg2p/odk-central-enketo
-    tag: v2023.1.0
+    repository: enketo/enketo-express
+    tag: 6.2.0
     pullPolicy: Always
 
 imagePullSecrets: []
