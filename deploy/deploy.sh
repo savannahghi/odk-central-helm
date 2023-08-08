@@ -23,10 +23,8 @@ helm upgrade \
     --debug \
     --create-namespace \
     --namespace "${NAMESPACE}" \
-    --set app.replicaCount="${APP_REPLICA_COUNT}" \
-    --set service.port="${PORT}"\
+    --set service.port="${BACKEND_PORT}"\
     --set service.frontendport="${FRONTEND_PORT}"\
-    --set app.container.env.domain="${DOMAIN}"\
     --set app.container.env.sysAdminEmail="${SYSADMIN_EMAIL}"\
     --set app.container.env.databaseInstanceConnectionName="${DB_INSTANCE_CONNECTION_NAME}"\
     --set app.container.env.dbHost="${DB_HOST}"\
@@ -34,22 +32,10 @@ helm upgrade \
     --set app.container.env.dbPassword="${DB_PASSWORD}"\
     --set app.container.env.dbName="${DB_NAME}"\
     --set app.container.env.dbSSL="${DB_SSL}"\
-    --set app.container.env.httpsPort="${HTTPS_PORT}"\
-    --set app.container.env.nodeOptions="${NODE_OPTIONS}"\
-    --set app.container.env.emailFrom="${EMAIL_FROM}"\
-    --set app.container.env.emailHost="${EMAIL_HOST}"\
-    --set app.container.env.emailPort="${EMAIL_PORT}"\
     --set app.container.env.enketoApiKey="${ENKETO_API_KEY}"\
-    --set app.container.env.emailSecure="${EMAIL_SECURE}"\
-    --set app.container.env.emailIgnoreTls="${EMAIL_IGNORE_TLS}"\
-    --set app.container.env.emailUser="${EMAIL_USER}"\
-    --set app.container.env.emailPassword="${EMAIL_PASSWORD}"\
-    --set app.container.env.sentryOrgSubdomain="${SENTRY_ORG_SUBDOMAIN}"\
-    --set app.container.env.sentryKey="${SENTRY_KEY}"\
-    --set app.container.env.sentryProject="${SENTRY_PROJECT}"\
     --set networking.issuer.name="letsencrypt-prod"\
     --set networking.issuer.privateKeySecretRef="letsencrypt-prod"\
-    --set networking.ingress.host="${APP_DOMAIN}"\
+    --set networking.ingress.host="${BACKEND_APP_DOMAIN}"\
     --set networking.enketo.ingress.host="${ENKETO_DOMAIN}"\
     --set networking.frontend.ingress.host="${FRONTEND_APP_DOMAIN}"\
     --wait \
