@@ -62,42 +62,6 @@ spec:
             - name: DB_SSL
               value: {{ .Values.app.container.env.dbSSL | quote }}
 
-            - name: HTTPS_PORT
-              value: {{ .Values.app.container.env.httpsPort | quote }}
-
-            - name: NODE_OPTIONS
-              value: {{ .Values.app.container.env.nodeOptions | quote }}
-
-            - name: EMAIL_FROM
-              value: {{ .Values.app.container.env.emailFrom | quote }}
-
-            - name: EMAIL_HOST
-              value: {{ .Values.app.container.env.emailHost | quote }}
-
-            - name: EMAIL_PORT
-              value: {{ .Values.app.container.env.emailPort | quote }}
-
-            - name: EMAIL_SECURE
-              value: {{ .Values.app.container.env.emailSecure | quote }}
-
-            - name: EMAIL_IGNORE_TLS
-              value: {{ .Values.app.container.env.emailIgnoreTls | quote }}
-
-            - name: EMAIL_USER
-              value: {{ .Values.app.container.env.emailUser | quote }}
-
-            - name: EMAIL_PASSWORD
-              value: {{ .Values.app.container.env.emailPassword | quote }}
-
-            - name: SENTRY_ORG_SUBDOMAIN
-              value: {{ .Values.app.container.env.sentryOrgSubdomain | quote }}
-
-            - name: SENTRY_KEY
-              value: {{ .Values.app.container.env.sentryKey | quote }}
-
-            - name: SENTRY_PROJECT
-              value: {{ .Values.app.container.env.sentryProject | quote }}
-
           volumeMounts:
           - name: enketo-api-key
             mountPath: /etc/secrets/enketo-api-key

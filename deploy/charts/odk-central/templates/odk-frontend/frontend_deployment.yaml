@@ -50,5 +50,3 @@ spec:
             - name: SYSADMIN_EMAIL
               value: {{ .Values.app.container.env.sysAdminEmail | quote }}
             
-            - name: CERTBOT_EMAIL
-              value: {{ .Values.app.container.env.sysAdminEmail | quote }}
