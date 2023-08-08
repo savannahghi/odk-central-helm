@@ -75,7 +75,7 @@ enketoSettingsConfig: |-
     "less secure encryption key": "this $3cr3t key is crackable",
     "default theme": "kobo",
     "themes supported": [],
-    "base path": "",
+    "base path": "-",
     "log": {
         "submissions": false
     },

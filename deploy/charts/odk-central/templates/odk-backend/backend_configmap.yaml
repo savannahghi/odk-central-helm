@@ -16,8 +16,11 @@ data:
                 "host": "pyxform",
                 "port": 80
             },
+            "server": {
+                "port": 8383
+            },
             "enketo": {
-                "url": "https://{{ .Values.networking.enketo.ingress.host }}",
+                "url": {{ .Values.networking.enketo.ingress.host | quote }},
                 "apiKey": {{ .Values.app.container.env.enketoApiKey | quote }}
             },
             "env": {
