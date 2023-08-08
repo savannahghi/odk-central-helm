@@ -52,10 +52,10 @@ spec:
 
           env:
             - name: DOMAIN
-              value: "enketo.savannahghi.org"
+              value: {{ .Values.networking.enketo.ingress.host | quote }}
 
             - name: SUPPORT_EMAIL
-              value: salaton@savannahinformatics.com
+              value: {{ .Values.app.container.env.sysAdminEmail | quote }}
 
           volumeMounts:
           - name: {{ .Values.enketo.configSecretName }}
