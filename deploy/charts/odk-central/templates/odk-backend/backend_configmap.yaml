@@ -17,7 +17,7 @@ data:
                 "port": 80
             },
             "enketo": {
-                "url": "http://enketo:8005/-",
+                "url": "https://{{ .Values.networking.enketo.ingress.host }}",
                 "apiKey": {{ .Values.app.container.env.enketoApiKey | quote }}
             },
             "env": {
