@@ -142,12 +142,12 @@ enketoSettingsConfig: |-
     "query parameter to pass to submission": "",
     "redis": {
         "main": {
-            "host": "127.0.0.1",
+            "host": "10.132.15.224",
             "port": "6379",
             "password": null
         },
         "cache": {
-            "host": "127.0.0.1",
+            "host": "10.132.15.224",
             "port": "6380",
             "password": null
         }
