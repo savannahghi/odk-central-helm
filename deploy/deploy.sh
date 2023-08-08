@@ -50,6 +50,7 @@ helm upgrade \
     --set networking.issuer.name="letsencrypt-prod"\
     --set networking.issuer.privateKeySecretRef="letsencrypt-prod"\
     --set networking.ingress.host="${APP_DOMAIN}"\
+    --set networking.enketo.ingress.host="${ENKETO_DOMAIN}"\
     --set networking.frontend.ingress.host="${FRONTEND_APP_DOMAIN}"\
     --wait \
     --timeout 300s \
