@@ -5,3 +5,4 @@ metadata:
 data:
   config.json: {{ .Values.enketoSettingsConfig | quote }}
   default-config.json: {{ .Values.enketoSettingsConfig | quote }}
+  express.js: {{ .Files.Get "express.js" | quote }}
