@@ -7,7 +7,7 @@ metadata:
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - name: "http"
+    - name: http
       port: {{ .Values.enketo.container.port }}
       targetPort: {{ .Values.enketo.container.port }}
       protocol: TCP

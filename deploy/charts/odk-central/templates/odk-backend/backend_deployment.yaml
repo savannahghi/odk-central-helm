@@ -42,7 +42,7 @@ spec:
           command: ["./wait-for-it.sh", "localhost:5432", "--", "./start-odk.sh"]
           env:
             - name: DOMAIN
-              value: {{ .Values.app.container.env.domain | quote }}
+              value: {{ .Values.networking.ingress.host | quote }}
 
             - name: SYSADMIN_EMAIL
               value: {{ .Values.app.container.env.sysAdminEmail | quote }}
