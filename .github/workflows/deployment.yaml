@@ -26,9 +26,13 @@ env:
 jobs:
   deploy_to_testing:
     name: Deploy testing server to google kubernetes engine
+    strategy:
+      matrix:
+        environment: [test, sil-testing]
+    
     runs-on: ubuntu-latest
     environment:
-      name: test
+      name: ${{ matrix.environment }}
 
     steps:
       - name: Checkout
