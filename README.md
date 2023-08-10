@@ -34,7 +34,7 @@ APP_NAME: Name of your application release
 APP_REPLICA_COUNT: Number of replicas to create for a pod 
 BACKEND_APP_DOMAIN: Domain for the ODK Backend deploy (e.g. example.com) 
 BACKEND_PORT: Port that the backend application exposes in Kubernetes (usually 8383).
-CLUSTER_NAME: Name of the GKE cluster you've created 
+CLUSTER_NAME: Name of the GKE cluster youve created 
 DB_HOST: Your database host (usually localhost due to Cloud SQL Proxy)
 DB_INSTANCE_CONNECTION_NAME: Cloud SQL instance connection name
 DB_NAME: Name of your database
@@ -45,7 +45,6 @@ ENKETO_API_KEY: API key for Enketo
 ENKETO_DOMAIN: Domain for the Enketo application (e.g., enketo.something.com)
 FRONTEND_APP_DOMAIN: Domain for the frontend application (the ODK Central UI)
 FRONTEND_PORT: Port for the frontend application (usually 80)
-GKE_PROJECT: Your Google Cloud project
 GKE_ZONE: Zone where the GKE cluster is deployed (e.g., europe-west1-b)
 GOOGLE_APPLICATION_CREDENTIALS: Google Cloud service account JSON key file.
 GOOGLE_CLOUD_PROJECT: Google Cloud project

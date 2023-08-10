@@ -4,7 +4,6 @@ on: [push]
 
 env:
   GKE_ZONE: ${{ secrets.GKE_ZONE }}
-  GKE_PROJECT: ${{ secrets.GKE_PROJECT }}
   CLUSTER_NAME: ${{ secrets.CLUSTER_NAME }}
   NAMESPACE: ${{ secrets.NAMESPACE }}
   GOOGLE_CLOUD_PROJECT: ${{ secrets.GOOGLE_CLOUD_PROJECT }}
