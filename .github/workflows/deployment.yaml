@@ -30,6 +30,7 @@ jobs:
         environment: [test, sil-testing]
     
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/develop'}}
     environment:
       name: ${{ matrix.environment }}
 
@@ -63,6 +64,7 @@ jobs:
         environment: [mch-prod, sil-prod]
     
     runs-on: ubuntu-latest
+    if: ${{ github.ref == 'refs/heads/main'}}
     environment:
       name: ${{ matrix.environment }}
 
