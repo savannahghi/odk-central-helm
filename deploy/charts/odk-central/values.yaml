@@ -29,7 +29,7 @@ frontend:
 
 pyxform:
   image:
-    registry: docker.io
+    registry: ghcr.io
     repository: getodk/pyxform-http
     tag: latest
     pullPolicy: Always
